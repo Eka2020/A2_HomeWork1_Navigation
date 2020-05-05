@@ -1,4 +1,4 @@
-package com.geektech.a2_homework1_navigation;
+package com.geektech.a2_homework2_viewpager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
-import com.geektech.a2_homework1_navigation.models.Task;
+import com.geektech.a2_homework2_viewpager.models.Task;
+import com.geektech.a2_homework2_viewpager.ui.onboard.OnBoardActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,7 +29,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (true){
+            startActivity(new Intent(this, OnBoardActivity.class));
+            finish();
+            return;
+        }
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);

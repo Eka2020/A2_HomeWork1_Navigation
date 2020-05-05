@@ -1,4 +1,4 @@
-package com.geektech.a2_homework1_navigation;
+package com.geektech.a2_homework2_viewpager;
 
 import android.content.Context;
 

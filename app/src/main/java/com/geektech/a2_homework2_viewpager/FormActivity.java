@@ -1,4 +1,4 @@
-package com.geektech.a2_homework1_navigation;
+package com.geektech.a2_homework2_viewpager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-import com.geektech.a2_homework1_navigation.models.Task;
+import com.geektech.a2_homework2_viewpager.models.Task;
 
 public class FormActivity extends AppCompatActivity {
     EditText editTitle;
@@ -35,6 +35,15 @@ public class FormActivity extends AppCompatActivity {
         intent.putExtra("task", task);
         setResult(RESULT_OK, intent);
         finish();
+
+
+//        Intent intent = new Intent();
+//        someClass.text = editName.getText().toString();
+//        Log.d("ololo", someClass.text);
+//        intent.putExtra(MainActivity.RESULT_KEY, someClass);
+//        setResult(RESULT_OK, intent);
+//        finish();
+
 
     }
 

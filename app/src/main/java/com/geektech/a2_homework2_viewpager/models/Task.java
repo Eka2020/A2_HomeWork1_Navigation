@@ -1,4 +1,4 @@
-package com.geektech.a2_homework1_navigation.models;
+package com.geektech.a2_homework2_viewpager.models;
 
 import java.io.Serializable;
 
