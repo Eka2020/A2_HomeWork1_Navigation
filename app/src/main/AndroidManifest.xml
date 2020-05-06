@@ -11,9 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning" >
-        <activity android:name="com.geektech.a2_homework2_viewpager.ui.onboard.OnBoardActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName="com.geektech.a2_homework2_viewpager.FormActivity">
+        <activity android:name=".ui.onboard.OnBoardActivity"
+            android:parentActivityName=".FormActivity" >
+        </activity>
+        <activity android:name=".FormActivity"
+            android:parentActivityName=".MainActivity" >
         </activity>
         <activity
             android:name="com.geektech.a2_homework2_viewpager.MainActivity"

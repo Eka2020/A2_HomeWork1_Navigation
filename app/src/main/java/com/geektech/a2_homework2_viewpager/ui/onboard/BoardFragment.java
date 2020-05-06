@@ -1,8 +1,6 @@
 package com.geektech.a2_homework2_viewpager.ui.onboard;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.geektech.a2_homework2_viewpager.MainActivity;
 import com.geektech.a2_homework2_viewpager.R;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -66,6 +62,7 @@ public class BoardFragment extends Fragment {
                 break;
             case 4:
                 textTitle.setText("Пока");
+                imageView.setImageResource(R.drawable.ic_launcher_foreground);
                 button.setVisibility(View.VISIBLE);
                 break;
         }

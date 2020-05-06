@@ -1,9 +1,7 @@
 package com.geektech.a2_homework2_viewpager.ui.home;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +17,6 @@ import com.geektech.a2_homework2_viewpager.MainActivity;
 import com.geektech.a2_homework2_viewpager.R;
 import com.geektech.a2_homework2_viewpager.models.Task;
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
     private TaskAdapter adapter;
@@ -28,6 +25,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
+
     }
 
     @Override
@@ -39,17 +37,16 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
-
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (resultCode == Activity.RESULT_OK && requestCode == 100) {
-//            String title = data.getStringExtra("title");
-//            String desc = data.getStringExtra("description");
-//
-//            list.add(0, new Task(title,     desc));
-//            adapter.notifyDataSetChanged();
-//        }
-//    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == MainActivity.RESULT_OK && requestCode == 100) {
+            String title = data.getStringExtra("title");
+            String desc = data.getStringExtra("description");
+            list.add(0, new Task(title, desc));
+            adapter.notifyDataSetChanged();
+        }
+    }
 }
+
 

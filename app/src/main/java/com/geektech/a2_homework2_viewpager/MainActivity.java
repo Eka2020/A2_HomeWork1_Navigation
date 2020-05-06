@@ -1,7 +1,7 @@
 package com.geektech.a2_homework2_viewpager;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -31,12 +31,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences preferences = getSharedPreferences("settings", MODE_PRIVATE);
         boolean show = true;
-        if (!show){
+        if (!show) {
             startActivity(new Intent(this, OnBoardActivity.class));
             finish();
             return;
         }
+
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -45,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivityForResult(new Intent(MainActivity.this, FormActivity.class), 100);
+                startActivityForResult(new Intent(MainActivity.this,
+                        FormActivity.class), 100);
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
@@ -63,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -78,12 +79,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == 100 && data !=null) {
-            Task title= (Task) data.getSerializableExtra("title");
-            Task desc= (Task) data.getSerializableExtra("description");
-
-            Log.i("ololo", "title= "+ title.getTitle());
-            Log.i("ololo", "desc= "+ desc.getDesc());
+//        if (resultCode == RESULT_OK && requestCode == 100 && data !=null) {
+////            Task title= (Task) data.getSerializableExtra("title");
+////            Task desc= (Task) data.getSerializableExtra("description");
+////            Log.i("ololo", "title= "+ title.getTitle());
+////            Log.i("ololo", "desc= "+ desc.getDesc());
+////
+////        }
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        if (fragment != null) {
+            fragment.getChildFragmentManager().getFragments().get(0).
+                    onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -92,8 +98,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
-        }
-        else if (id== R.id.action_close){
+        } else if (id == R.id.action_close) {
             finish();
         }
         return super.onOptionsItemSelected(item);

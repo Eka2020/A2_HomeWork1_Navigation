@@ -2,17 +2,15 @@ package com.geektech.a2_homework2_viewpager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-
 import com.geektech.a2_homework2_viewpager.models.Task;
 
 public class FormActivity extends AppCompatActivity {
+
     EditText editTitle;
     EditText editDesc;
 
@@ -47,14 +45,5 @@ public class FormActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK && requestCode == 100) {
-            String title = data.getStringExtra("title");
-            String desc = data.getStringExtra("description");
-
-        }
-    }
 }
+
