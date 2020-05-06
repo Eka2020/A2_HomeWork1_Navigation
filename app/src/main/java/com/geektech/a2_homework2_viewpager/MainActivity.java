@@ -1,5 +1,6 @@
 package com.geektech.a2_homework2_viewpager;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -29,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (true){
+        boolean show = true;
+        if (!show){
             startActivity(new Intent(this, OnBoardActivity.class));
             finish();
             return;
@@ -76,9 +79,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == 100 && data !=null) {
-            Task task= (Task) data.getSerializableExtra("task");
-            Log.i("ololo", "title= "+ task.getTitle());
-            Log.i("ololo", "desc= "+ task.getDesc());
+            Task title= (Task) data.getSerializableExtra("title");
+            Task desc= (Task) data.getSerializableExtra("description");
+
+            Log.i("ololo", "title= "+ title.getTitle());
+            Log.i("ololo", "desc= "+ desc.getDesc());
         }
     }
 
@@ -93,4 +98,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

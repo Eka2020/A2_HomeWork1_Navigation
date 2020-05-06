@@ -47,10 +47,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView text_title;
+        private TextView text_title, text_desc;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             text_title=itemView.findViewById(R.id.text_title);
+            text_desc=itemView.findViewById(R.id.text_desc);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -61,6 +62,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
         public void bind(Task task) {
             text_title.setText(task.getTitle());
+            text_desc.setText(task.getDesc());
         }
     }
 }

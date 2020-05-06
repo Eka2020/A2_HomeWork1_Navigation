@@ -3,6 +3,7 @@ package com.geektech.a2_homework2_viewpager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -32,19 +33,10 @@ public class FormActivity extends AppCompatActivity {
         String desc = editDesc.getText().toString().trim();
         Task task = new Task(title, desc);
         Intent intent = new Intent();
-        intent.putExtra("task", task);
+        intent.putExtra("title",  title);
+        intent.putExtra("description",   desc);
         setResult(RESULT_OK, intent);
         finish();
-
-
-//        Intent intent = new Intent();
-//        someClass.text = editName.getText().toString();
-//        Log.d("ololo", someClass.text);
-//        intent.putExtra(MainActivity.RESULT_KEY, someClass);
-//        setResult(RESULT_OK, intent);
-//        finish();
-
-
     }
 
     @Override
@@ -54,5 +46,15 @@ public class FormActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK && requestCode == 100) {
+            String title = data.getStringExtra("title");
+            String desc = data.getStringExtra("description");
+
+        }
     }
 }
