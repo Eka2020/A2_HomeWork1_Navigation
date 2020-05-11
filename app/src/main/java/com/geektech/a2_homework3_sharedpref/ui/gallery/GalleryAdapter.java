@@ -1,26 +1,22 @@
-package com.geektech.a2_homework2_viewpager.ui.home;
+package com.geektech.a2_homework3_sharedpref.ui.gallery;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.geektech.a2_homework2_viewpager.R;
-import com.geektech.a2_homework2_viewpager.models.Task;
-import com.geektech.a2_homework2_viewpager.ui.OnItemClickListener;
-
+import com.geektech.a2_homework3_sharedpref.R;
+import com.geektech.a2_homework3_sharedpref.ui.OnItemClickListener;
+import java.io.File;
 import java.util.ArrayList;
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
 
-    private ArrayList<Task> list;
-    private OnItemClickListener onItemClickListener;
+    ArrayList<File> list;
+    OnItemClickListener onItemClickListener;
 
-
-    public TaskAdapter(ArrayList<Task> list) {
+    public GalleryAdapter(ArrayList<File> list) {
         this.list = list;
         this.onItemClickListener = onItemClickListener;
     }
@@ -28,8 +24,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_task, parent, false);
-        return new ViewHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_gallery, parent, false);
+        return new GalleryAdapter.ViewHolder(view);
     }
 
     @Override
@@ -41,16 +37,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public int getItemCount() {
         return list.size();
     }
-    public  void setOnItemClickListener (OnItemClickListener onItemClickListener){
-        this.onItemClickListener= onItemClickListener;
-    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView text_title, text_desc;
+        TextView name;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            text_title=itemView.findViewById(R.id.text_title);
-            text_desc=itemView.findViewById(R.id.text_desc);
+            name= itemView.findViewById(R.id.file_name);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -58,10 +51,24 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
                 }
             });
         }
+        public void bind(File file) {
+            name.setText(file.getName());
 
-        public void bind(Task task) {
-            text_title.setText(task.getTitle());
-            text_desc.setText(task.getDesc());
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

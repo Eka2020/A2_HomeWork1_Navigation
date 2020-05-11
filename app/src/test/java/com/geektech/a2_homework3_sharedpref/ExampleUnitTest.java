@@ -1,4 +1,4 @@
-package com.geektech.a2_homework2_viewpager;
+package com.geektech.a2_homework3_sharedpref;
 
 import org.junit.Test;
 

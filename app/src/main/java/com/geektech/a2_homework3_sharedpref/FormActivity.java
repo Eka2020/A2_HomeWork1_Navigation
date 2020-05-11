@@ -1,4 +1,4 @@
-package com.geektech.a2_homework2_viewpager;
+package com.geektech.a2_homework3_sharedpref;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import com.geektech.a2_homework2_viewpager.models.Task;
+import com.geektech.a2_homework3_sharedpref.models.Task;
 
 public class FormActivity extends AppCompatActivity {
 

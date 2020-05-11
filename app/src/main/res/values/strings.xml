@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">A2_HomeWork2_ViewPager</string>
+    <string name="app_name">A2_HomeWork3_SharedPref</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Джумалиева Эркайым</string>
@@ -9,9 +9,9 @@
     <string name="action_close">Выйти</string>
 
     <string name="menu_home">Задачи</string>
-    <string name="menu_gallery">Gallery</string>
+    <string name="menu_gallery">Галерея</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="home_second">Home Second</string>
-    <string name="hello_blank_fragment">Home work 2 ViewPager tab</string>
+    <string name="hello_blank_fragment">Home work 3 Shared Preferences</string>
 
 </resources>

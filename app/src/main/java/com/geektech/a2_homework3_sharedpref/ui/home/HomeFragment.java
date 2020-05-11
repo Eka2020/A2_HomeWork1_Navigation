@@ -1,6 +1,5 @@
-package com.geektech.a2_homework2_viewpager.ui.home;
+package com.geektech.a2_homework3_sharedpref.ui.home;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,13 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.geektech.a2_homework2_viewpager.MainActivity;
-import com.geektech.a2_homework2_viewpager.R;
-import com.geektech.a2_homework2_viewpager.models.Task;
+import com.geektech.a2_homework3_sharedpref.MainActivity;
+import com.geektech.a2_homework3_sharedpref.R;
+import com.geektech.a2_homework3_sharedpref.models.Task;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {

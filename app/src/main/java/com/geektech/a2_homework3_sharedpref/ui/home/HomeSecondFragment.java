@@ -1,4 +1,4 @@
-package com.geektech.a2_homework2_viewpager.ui.home;
+package com.geektech.a2_homework3_sharedpref.ui.home;
 
 import android.app.Fragment;
 

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.geektech.a2_homework2_viewpager"
+        applicationId "com.geektech.a2_homework3_sharedpref"
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
@@ -37,4 +37,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
 }

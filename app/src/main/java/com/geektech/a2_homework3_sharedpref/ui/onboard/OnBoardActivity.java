@@ -1,12 +1,11 @@
-package com.geektech.a2_homework2_viewpager.ui.onboard;
+package com.geektech.a2_homework3_sharedpref.ui.onboard;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,9 +15,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.geektech.a2_homework2_viewpager.FormActivity;
-import com.geektech.a2_homework2_viewpager.MainActivity;
-import com.geektech.a2_homework2_viewpager.R;
+import com.geektech.a2_homework3_sharedpref.MainActivity;
+import com.geektech.a2_homework3_sharedpref.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class OnBoardActivity extends AppCompatActivity {
@@ -28,9 +26,21 @@ public class OnBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_board);
         ViewPager viewPager = findViewById(R.id.view_pager);
+        Button button = findViewById(R.id.skip);
         viewPager.setAdapter(new SectionsPagerAdapter(getSupportFragmentManager()));
          TabLayout tabLayout = findViewById(R.id.tab_layout);
          tabLayout.setupWithViewPager(viewPager, true);
+
+
+         button.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 SharedPreferences preferences=getSharedPreferences("settings", Context.MODE_PRIVATE);
+                 preferences.edit().putBoolean("isShow", true).apply();
+                 finish();
+                 startActivity(new Intent(OnBoardActivity.this, MainActivity.class));
+             }
+         });
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -54,8 +64,6 @@ public class OnBoardActivity extends AppCompatActivity {
             return 5;
         }
     }
-
-    }
-
+}
 
 

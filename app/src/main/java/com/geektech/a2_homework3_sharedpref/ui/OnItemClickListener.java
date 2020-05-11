@@ -1,4 +1,4 @@
-package com.geektech.a2_homework2_viewpager.ui;
+package com.geektech.a2_homework3_sharedpref.ui;
 
 
 public interface OnItemClickListener {

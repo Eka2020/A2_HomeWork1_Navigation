@@ -1,4 +1,4 @@
-package com.geektech.a2_homework2_viewpager.models;
+package com.geektech.a2_homework3_sharedpref.models;
 
 import java.io.Serializable;
 

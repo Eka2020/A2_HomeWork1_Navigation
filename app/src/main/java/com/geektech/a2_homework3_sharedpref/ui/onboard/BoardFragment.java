@@ -1,6 +1,8 @@
-package com.geektech.a2_homework2_viewpager.ui.onboard;
+package com.geektech.a2_homework3_sharedpref.ui.onboard;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.geektech.a2_homework2_viewpager.MainActivity;
-import com.geektech.a2_homework2_viewpager.R;
+import com.geektech.a2_homework3_sharedpref.MainActivity;
+import com.geektech.a2_homework3_sharedpref.R;
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -70,10 +72,15 @@ public class BoardFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), MainActivity.class));
-                getActivity().finish();
+                saveIsShow();
+                startActivity(new Intent(getActivity(), MainActivity.class));
             }
         });
         return;
 }
+private void saveIsShow(){
+    SharedPreferences preferences= getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+   preferences.edit().putBoolean("isShow", true).apply();
+    getActivity().finish();
+    }
 }
