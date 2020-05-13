@@ -1,5 +1,6 @@
 package com.geektech.a2_homework4_database.ui.home;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(list.get(position));
-
+        if(position% 2==1){
+            holder.itemView.setBackgroundColor(Color.parseColor("#FF99CC00"));
+        } else {
+            holder.itemView.setBackgroundColor(Color.parseColor("#FF047008"));
+        }
     }
 
     @Override
@@ -45,7 +50,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView text_title, text_desc;
@@ -58,36 +62,23 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
                 @Override
                 public boolean onLongClick(View v) {
-                    return false;
+                    onItemClickListener.onItemLongClick(getAdapterPosition());
+                    return true;
+                }
+            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickListener.onItemClick(getAdapterPosition());
                 }
             });
         }
 
-            public void bind (Task task){
-                text_title.setText(task.getTitle());
-                text_desc.setText(task.getDesc());
-            }
+        public void bind(Task task) {
+            text_title.setText(task.getTitle());
+            text_desc.setText(task.getDesc());
         }
-
-//
-//    private void showDialog(View view) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder();
-//        builder.setTitle("Android Database")
-//                .setMessage("Вы хотите удалить?")
-//                .setCancelable(false)
-//                .setNegativeButton("ДА", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-////                        Toast.makeText(MainActivity.class , "Вы удалили строку", Toast.LENGTH_SHORT).show();
-//                    }
-//                })
-//                .setPositiveButton("НЕТ", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                    }
-//                });
-//
-//        AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
-//    }
+    }
 }
+
+
