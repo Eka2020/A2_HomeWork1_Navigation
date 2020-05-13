@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.geektech.a2_homework3_sharedpref"
+        applicationId "com.geektech.a2_homework4_database"
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
@@ -36,6 +36,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
 }

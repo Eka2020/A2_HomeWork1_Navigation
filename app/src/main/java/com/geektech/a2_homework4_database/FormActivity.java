@@ -1,13 +1,14 @@
-package com.geektech.a2_homework3_sharedpref;
+package com.geektech.a2_homework4_database;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import com.geektech.a2_homework3_sharedpref.models.Task;
+
+import com.geektech.a2_homework4_database.models.Task;
 
 public class FormActivity extends AppCompatActivity {
 
@@ -30,10 +31,11 @@ public class FormActivity extends AppCompatActivity {
         String title = editTitle.getText().toString().trim();
         String desc = editDesc.getText().toString().trim();
         Task task = new Task(title, desc);
-        Intent intent = new Intent();
-        intent.putExtra("title",  title);
-        intent.putExtra("description",   desc);
-        setResult(RESULT_OK, intent);
+        App.getInstance().getDatabase().taskDao().insert(task);
+//        Intent intent = new Intent();
+//        intent.putExtra("title",  title);
+//        intent.putExtra("description",   desc);
+//        setResult(RESULT_OK, intent);
         finish();
     }
 
@@ -45,5 +47,10 @@ public class FormActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+
 }
 

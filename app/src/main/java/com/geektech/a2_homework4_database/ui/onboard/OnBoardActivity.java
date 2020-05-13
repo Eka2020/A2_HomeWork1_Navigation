@@ -1,4 +1,4 @@
-package com.geektech.a2_homework3_sharedpref.ui.onboard;
+package com.geektech.a2_homework4_database.ui.onboard;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,8 +15,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.geektech.a2_homework3_sharedpref.MainActivity;
-import com.geektech.a2_homework3_sharedpref.R;
+import com.geektech.a2_homework4_database.MainActivity;
+import com.geektech.a2_homework4_database.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class OnBoardActivity extends AppCompatActivity {

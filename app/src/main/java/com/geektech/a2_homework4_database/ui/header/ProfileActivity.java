@@ -1,16 +1,17 @@
-package com.geektech.a2_homework3_sharedpref.ui.header;
+package com.geektech.a2_homework4_database.ui.header;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.geektech.a2_homework3_sharedpref.MainActivity;
-import com.geektech.a2_homework3_sharedpref.R;
+import com.geektech.a2_homework4_database.MainActivity;
+import com.geektech.a2_homework4_database.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -20,12 +21,14 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView imgCurrent;
     private int current = 1;
     private int[] imgIDs = {0, R.drawable.avatar};
+    SharedPreferences sPref;
+    final String SAVED_TEXT = "saved_text";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        sPref = getPreferences(MODE_PRIVATE);
         imgCurrent = findViewById(R.id.profile_image);
         edit_name = findViewById(R.id.edit_name);
         edit_age = findViewById(R.id.edit_age);
@@ -37,6 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveProfile();
                 String n = edit_name.getText().toString();
                 name = findViewById(R.id.tv_prof_name);
                 name.setText(n);
@@ -54,11 +58,9 @@ public class ProfileActivity extends AppCompatActivity {
                 edit_phone.setText("");
                 edit_email.setText("");
                 edit_address.setText("");
-
                 close.setVisibility(View.VISIBLE);
                 Button save = findViewById(R.id.btn_profile_save);
                 save.setVisibility(View.GONE);
-
             }
         });
 
@@ -67,6 +69,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
                 startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+
             }
         });
 
@@ -95,7 +98,8 @@ public class ProfileActivity extends AppCompatActivity {
              }
          });
     }
-//    public void image_preview(View view) {
+
+    //    public void image_preview(View view) {
 //        current--;
 //        if (current==0) current=7;
 //        imgCurrent.setImageResource(imgIDs[current]);
@@ -107,21 +111,16 @@ public class ProfileActivity extends AppCompatActivity {
 //        imgCurrent.setImageResource(imgIDs[current]);
 //    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == 102 && data != null) {
-            Intent intent = new Intent(this, MainActivity.class);
-            String n;
-            n = name.getText().toString();
-            intent.putExtra("header_name", n);
-            String e;
-            e = email.getText().toString();
-            intent.putExtra("header_email", e);
-//            String image = new String();
-//            intent.putExtra("header_image", image);
-            startActivityForResult(intent, 102);
-        }
+    void saveProfile() {
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putString(SAVED_TEXT, edit_name.getText().toString());
+        ed.putString(SAVED_TEXT, edit_age.getText().toString());
+        ed.putString(SAVED_TEXT, edit_phone.getText().toString());
+        ed.putString(SAVED_TEXT, edit_email.getText().toString());
+        ed.putString(SAVED_TEXT, edit_address.getText().toString());
+        ed.commit();
+        Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
     }
 }
 

@@ -1,4 +1,4 @@
-package com.geektech.a2_homework3_sharedpref;
+package com.geektech.a2_homework4_database;
 
 import org.junit.Test;
 

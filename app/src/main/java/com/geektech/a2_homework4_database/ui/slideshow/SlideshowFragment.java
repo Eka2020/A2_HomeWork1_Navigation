@@ -1,4 +1,4 @@
-package com.geektech.a2_homework3_sharedpref.ui.slideshow;
+package com.geektech.a2_homework4_database.ui.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.geektech.a2_homework3_sharedpref.R;
+import com.geektech.a2_homework4_database.R;
 
 public class SlideshowFragment extends Fragment {
 

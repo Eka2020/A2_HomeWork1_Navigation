@@ -1,4 +1,4 @@
-package com.geektech.a2_homework3_sharedpref.ui.gallery;
+package com.geektech.a2_homework4_database.ui.gallery;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.geektech.a2_homework3_sharedpref.R;
-import com.geektech.a2_homework3_sharedpref.ui.OnItemClickListener;
+import com.geektech.a2_homework4_database.R;
+import com.geektech.a2_homework4_database.ui.OnItemClickListener;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -15,6 +15,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     ArrayList<File> list;
     OnItemClickListener onItemClickListener;
+
 
     public GalleryAdapter(ArrayList<File> list) {
         this.list = list;

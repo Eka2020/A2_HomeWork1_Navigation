@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.geektech.a2_homework3_sharedpref">
+    package="com.geektech.a2_homework4_database">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
+        android:name="com.geektech.a2_homework4_database.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,17 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning" >
-        <activity android:name="com.geektech.a2_homework3_sharedpref.ui.onboard.OnBoardActivity"
-            android:parentActivityName="com.geektech.a2_homework3_sharedpref.FormActivity" >
+        <activity android:name="com.geektech.a2_homework4_database.ui.onboard.OnBoardActivity"
+            android:parentActivityName="com.geektech.a2_homework4_database.FormActivity" >
         </activity>
-        <activity android:name="com.geektech.a2_homework3_sharedpref.ui.header.ProfileActivity"
-            android:parentActivityName="com.geektech.a2_homework3_sharedpref.FormActivity" >
+        <activity android:name="com.geektech.a2_homework4_database.ui.header.ProfileActivity"
+            android:parentActivityName="com.geektech.a2_homework4_database.FormActivity" >
         </activity>
-        <activity android:name="com.geektech.a2_homework3_sharedpref.FormActivity"
-            android:parentActivityName="com.geektech.a2_homework3_sharedpref.MainActivity" >
+        <activity android:name="com.geektech.a2_homework4_database.FormActivity"
+            android:parentActivityName="com.geektech.a2_homework4_database.MainActivity" >
         </activity>
         <activity
-            android:name="com.geektech.a2_homework3_sharedpref.MainActivity"
+            android:name="com.geektech.a2_homework4_database.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

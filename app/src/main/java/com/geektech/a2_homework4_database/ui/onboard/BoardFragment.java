@@ -1,4 +1,4 @@
-package com.geektech.a2_homework3_sharedpref.ui.onboard;
+package com.geektech.a2_homework4_database.ui.onboard;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.geektech.a2_homework3_sharedpref.MainActivity;
-import com.geektech.a2_homework3_sharedpref.R;
+import com.geektech.a2_homework4_database.MainActivity;
+import com.geektech.a2_homework4_database.R;
 /**
  * A simple {@link Fragment} subclass.
  */

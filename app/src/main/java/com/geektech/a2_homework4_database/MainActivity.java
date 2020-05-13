@@ -1,4 +1,4 @@
-package com.geektech.a2_homework3_sharedpref;
+package com.geektech.a2_homework4_database;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,15 +7,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.geektech.a2_homework3_sharedpref.ui.header.ProfileActivity;
-import com.geektech.a2_homework3_sharedpref.ui.onboard.OnBoardActivity;
+import com.geektech.a2_homework4_database.ui.header.ProfileActivity;
+import com.geektech.a2_homework4_database.ui.onboard.OnBoardActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -51,11 +47,9 @@ public class MainActivity extends AppCompatActivity {
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         View header = navigationView.getHeaderView(0);
-        ImageView imageView = header.findViewById(R.id.imageView1);
-        imageView.setOnClickListener(new OnClickListener() {
+         header.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                isShow();
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                 finish();
                 return;
@@ -89,27 +83,15 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == 100 && data != null) {
-            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
-            fragment.getChildFragmentManager().getFragments().get(0).
-                    onActivityResult(requestCode, resultCode, data);
-      }
-        else if (resultCode == RESULT_OK && requestCode == 102 && data != null) {
-            TextView name = findViewById(R.id.header_name);
-            TextView email = findViewById(R.id.header_email);
-            ImageView image = findViewById(R.id.imageView1);
-            data.getStringExtra("header_name");
-            name.setText("n");
-            data.getStringExtra("header_email");
-            email.setText("e");
-//            data.getStringExtra("header_image");
-//            image.setImageMatrix("image");
-            onActivityResult(requestCode, resultCode, data);
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode == RESULT_OK && requestCode == 100 && data != null) {
+//            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+//            fragment.getChildFragmentManager().getFragments().get(0).
+//                    onActivityResult(requestCode, resultCode, data);
+//      }
+//    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
