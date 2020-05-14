@@ -26,6 +26,9 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:background="@drawable/btn_rounded_gradient"
         android:text="Cохранить" />
 
 </LinearLayout>

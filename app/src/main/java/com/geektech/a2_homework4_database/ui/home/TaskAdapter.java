@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     private ArrayList<Task> list;
     private OnItemClickListener onItemClickListener;
+
 
 
     public TaskAdapter(ArrayList<Task> list) {
@@ -36,9 +38,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.bind(list.get(position));
         if(position% 2==1){
-            holder.itemView.setBackgroundColor(Color.parseColor("#FF99CC00"));
+            holder.layout.setBackgroundColor(Color.LTGRAY);
         } else {
-            holder.itemView.setBackgroundColor(Color.parseColor("#FF047008"));
+            holder.layout.setBackgroundColor(Color.WHITE);
         }
     }
 
@@ -53,6 +55,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView text_title, text_desc;
+        private LinearLayout layout;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -80,5 +83,3 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         }
     }
 }
-
-

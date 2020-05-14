@@ -29,5 +29,6 @@ public interface TaskDao {
 
     @Update
     void upDate(Task task);
+
 }
 

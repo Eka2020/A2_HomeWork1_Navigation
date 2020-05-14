@@ -2,10 +2,12 @@ package com.geektech.a2_homework4_database;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
 import com.geektech.a2_homework4_database.models.Task;
 
 public class FormActivity extends AppCompatActivity {
@@ -26,8 +28,8 @@ public class FormActivity extends AppCompatActivity {
         edit();
     }
 
-    public  void edit(){
-        task= (Task) getIntent().getSerializableExtra("task");
+    public void edit() {
+        task = (Task) getIntent().getSerializableExtra("task");
         if (task != null)
             editTitle.setText(task.getTitle());
         editDesc.setText(task.getDesc());
@@ -36,16 +38,14 @@ public class FormActivity extends AppCompatActivity {
     public void onClick(View view) {
         String title = editTitle.getText().toString().trim();
         String desc = editDesc.getText().toString().trim();
-        if (task !=null){
+        if (task != null) {
             task.setTitle(editTitle.getText().toString());
             task.setDesc(editDesc.getText().toString());
             App.getInstance().getDatabase().taskDao().upDate(task);
-        }
-        else {
-            task= new Task(editTitle.getText().toString(), editDesc.getText().toString());
+        } else {
+            task = new Task(editTitle.getText().toString(), editDesc.getText().toString());
             App.getInstance().getDatabase().taskDao().insert(task);
         }
-
         finish();
     }
 
@@ -57,8 +57,6 @@ public class FormActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
 }
+
 
